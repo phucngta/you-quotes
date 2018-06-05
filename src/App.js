@@ -1,4 +1,6 @@
 import React from 'react';
+import FacebookProvider, { ShareButton } from 'react-facebook';
+
 import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
@@ -27,7 +29,7 @@ class App extends Component {
 			twitterIconHref: this.props.twitterIconHref + encodeURIComponent(`${this.state.quoteText} ${this.state.quoteAuthor}`)
 		});
 	}
-	
+
 	encodeQuoteData() {
 		return encodeURIComponent(`${this.state.quoteText} ${this.state.quoteAuthor}`);
 	}
@@ -54,6 +56,9 @@ class App extends Component {
 						twitterIconHref={this.state.twitterIconHref}
 						constructTwitterIconHref={this.constructTwitterIconHref}
 					/>
+                  <FacebookProvider appId="1545891592136985">
+                    <ShareButton href="http://www.facebook.com" />
+                  </FacebookProvider>
 					<Button getQuote={this.getQuote} />
 				</div>
 			</div>
